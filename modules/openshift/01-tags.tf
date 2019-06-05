@@ -21,6 +21,8 @@ locals {
   common_tags = "${map(
     "Project", "openshift",
     "KubernetesCluster", "${var.cluster_name}",
-    "kubernetes.io/cluster/${var.cluster_name}", "${var.cluster_id}"
+    "kubernetes.io/cluster/${var.cluster_name}", "${var.cluster_id}",
+    "creator", "peter.hack@dynatrace.com",
+    "purpose", "ocp-workshop"
   )}"
 }
