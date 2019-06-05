@@ -1,6 +1,10 @@
 //  Create a role which OpenShift instances will assume.
 //  This role has a policy saying it can be assumed by ec2
 //  instances.
+
+variable keptn_user {
+  default = "phack"
+}
 resource "aws_iam_role" "openshift-instance-role" {
   name = "openshift-instance-role-${var.keptn_user}"
 
