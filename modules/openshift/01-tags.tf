@@ -22,7 +22,7 @@ locals {
     "Project", "openshift-${var.keptn_user}",
     "KubernetesCluster", "${var.cluster_name}",
     "kubernetes.io/cluster/${var.cluster_name}", "${var.cluster_id}",
-    "creator", "${var.keptn_email}",
+    "creator", "peter.hack@dynatrace.com",
     "purpose", "keptn-ocp-workshop"
   )}"
 }
