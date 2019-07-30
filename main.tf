@@ -10,9 +10,9 @@ module "openshift" {
   amisize         = "t3.xlarge"    //  Smallest that meets the min specs for OS is t2.large
   vpc_cidr        = "10.0.0.0/16"
   subnet_cidr     = "10.0.1.0/24"
-  key_name        = "ocp-workshop-{var.ocp_user}"
+  key_name        = "ocp-workshop-${var.ocp_user}"
   public_key_path = "${var.public_key_path}"
-  cluster_name    = "openshift-cluster-{var.ocp_user}"
+  cluster_name    = "openshift-cluster-${var.ocp_user}"
   cluster_id      = "openshift-cluster-${var.region}"
 }
 
