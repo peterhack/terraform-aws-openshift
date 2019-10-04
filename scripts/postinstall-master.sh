@@ -4,6 +4,9 @@
 # changes which would otherwise be overwritten by ansible.
 sudo su
 
+# make sure iptables service is running when host starts
+systemctl enable iptables.service
+
 # Create an htpasswd file, we'll use htpasswd auth for OpenShift.
 htpasswd -cb /etc/origin/master/htpasswd admin 123
 echo "Password for 'admin' set to '123'"
