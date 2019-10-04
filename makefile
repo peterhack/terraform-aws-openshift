@@ -12,6 +12,11 @@ openshift:
 	ssh -A ec2-user@$$(terraform output bastion-public_ip) "ssh-keyscan -t rsa -H node1.openshift.local >> ~/.ssh/known_hosts"
 	ssh -A ec2-user@$$(terraform output bastion-public_ip) "ssh-keyscan -t rsa -H node2.openshift.local >> ~/.ssh/known_hosts"
 
+        # fix for openshift
+        - cat ./scripts/fix-openShift.sh | ssh -A ec2-user@$$(terraform output bastion-public_ip) ssh master.openshift.local
+        - cat ./scripts/fix-openShift.sh | ssh -A ec2-user@$$(terraform output bastion-public_ip) ssh node1.openshift.local
+        - cat ./scripts/fix-openShift.sh | ssh -A ec2-user@$$(terraform output bastion-public_ip) ssh node2.openshift.local
+	
 	# Copy our inventory to the master and run the install script.
 	scp ./inventory.cfg ec2-user@$$(terraform output bastion-public_ip):~
 	cat install-from-bastion.sh | ssh -o StrictHostKeyChecking=no -A ec2-user@$$(terraform output bastion-public_ip)
