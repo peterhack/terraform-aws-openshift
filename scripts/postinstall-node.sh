@@ -4,6 +4,9 @@
 # changes which would otherwise be overwritten by ansible.
 sudo su
 
+# fix openshift iptables
+systemctl enable iptables.service
+
 # Update the docker config to allow OpenShift's local insecure registry. Also
 # use json-file for logging, so our Splunk forwarder can eat the container logs.
 # json-file for logging
