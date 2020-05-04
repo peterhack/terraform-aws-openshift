@@ -19,7 +19,9 @@
 //  The syntax below is ugly, but needed as we are using dynamic key names.
 locals {
   common_tags = "${map(
-    "Project", "openshift-${var.ocp_user}",
+    "creator", "peter.hack@harness.io",
+    "duration", "long live",
+    "purpose", "Demo OKD 3.11",
     "KubernetesCluster", "${var.cluster_name}",
     "kubernetes.io/cluster/${var.cluster_name}", "${var.cluster_id}"
   )}"

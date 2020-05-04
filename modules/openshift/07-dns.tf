@@ -24,21 +24,21 @@ resource "aws_route53_record" "master-a-record" {
         "${aws_instance.master.private_ip}"
     ]
 }
-resource "aws_route53_record" "node1-a-record" {
-    zone_id = "${aws_route53_zone.internal.zone_id}"
-    name = "node1.openshift.local"
-    type = "A"
-    ttl  = 300
-    records = [
-        "${aws_instance.node1.private_ip}"
-    ]
-}
-resource "aws_route53_record" "node2-a-record" {
-    zone_id = "${aws_route53_zone.internal.zone_id}"
-    name = "node2.openshift.local"
-    type = "A"
-    ttl  = 300
-    records = [
-        "${aws_instance.node2.private_ip}"
-    ]
+// resource "aws_route53_record" "node1-a-record" {
+//     zone_id = "${aws_route53_zone.internal.zone_id}"
+//     name = "node1.openshift.local"
+//     type = "A"
+//     ttl  = 300
+//     records = [
+//         "${aws_instance.node1.private_ip}"
+//     ]
+// }
+// resource "aws_route53_record" "node2-a-record" {
+//     zone_id = "${aws_route53_zone.internal.zone_id}"
+//     name = "node2.openshift.local"
+//     type = "A"
+//     ttl  = 300
+//     records = [
+//         "${aws_instance.node2.private_ip}"
+//     ]
 }
